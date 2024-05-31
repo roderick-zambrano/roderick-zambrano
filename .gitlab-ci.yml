@@ -11,17 +11,13 @@ deploy:
     # Configure required variables and settings
     - git config --global user.name "${FULL_NAME}"
     - git config --global user.email "${EMAIL}"
-    - git fetch --unshallow
     - git checkout $CI_COMMIT_BRANCH
 
     # Push to GitHub
-    - echo https://${GITHUB_TOKEN}@github.com/${USERNAME}/${PROFILE_REPO}.git
     - git remote set-url github https://${GITHUB_TOKEN}@github.com/${USERNAME}/${PROFILE_REPO}.git
     - git push github
 
     # Push to GitLab
-    - git remote add gitlab https://${USERNAME}:${GITLAB_TOKEN}@gitlab.com/${USERNAME}/${PROFILE_REPO}.git
-    - git push -f gitlab
+    - git remote set-url gitlab https://${USERNAME}:${GITLAB_TOKEN}@gitlab.com/${USERNAME}/${PROFILE_REPO}.git
+    - git push gitlab
 
-  only:
-    - main
