@@ -23,5 +23,3 @@ deploy:
     - git remote add gitlab https://${USERNAME}:${GITLAB_TOKEN}@gitlab.com/${USERNAME}/${PROFILE_REPO}.git
     - git push -f gitlab
 
-  only:
-    - main
