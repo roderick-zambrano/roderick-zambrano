@@ -1,0 +1,25 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - git config --global user.name "$FULL_NAME"
+    - git config --global user.email "$EMAIL"
+
+    # Clone the repository
+    - git clone --mirror https://$GITLAB_SH_URL/$USERNAME/$USERNAME.git
+    - cd $USERNAME.git
+
+    # Push to GitHub
+    - git remote add github https://$GITHUB_TOKEN@github.com/$USERNAME/$USERNAME.git
+    - git push -f github --all
+    - git push -f github --tags
+
+    # Push to GitLab
+    - git remote add gitlab https://$GITLAB_TOKEN@gitlab.com/$USERNAME/$USERNAME.git
+    - git push -f gitlab --all
+    - git push -f gitlab --tags
+
+  only:
+    - main
