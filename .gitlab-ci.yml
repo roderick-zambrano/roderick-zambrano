@@ -20,6 +20,6 @@ deploy:
     - git push github
 
     # Push to GitLab
-    - git remote add gitlab https://${USERNAME}:${GITLAB_TOKEN}@gitlab.com/${USERNAME}/${PROFILE_REPO}.git
-    - git push -f gitlab
+    - git remote set-url gitlab https://${USERNAME}:${GITLAB_TOKEN}@gitlab.com/${USERNAME}/${PROFILE_REPO}.git
+    - git push gitlab
 
