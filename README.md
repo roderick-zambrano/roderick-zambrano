@@ -5,8 +5,9 @@
 
 - 🙋‍♂️ Volunteering in a Front-End position
 - 📊 Learning Data Science with Python
-- 🖥️ Tinkering with my home lab
+- ♾️ Learning CI/CD with GitLab (self-hosted)
 - ⚛️ Learning Front-End with React, TypeScript, SCSS
+- 🖥️ Tinkering with my home lab
 - ✈️ Searching for more tech opportunities
 - 🔍 Looking for more FOSS projects to self-host
 - 👨‍💻 Aiming for FullStack Developer
@@ -31,3 +32,7 @@
 - I'm a lover of all things Rust, from CLI tools to programs built with it (still have to get into coding in Rust)
 - I'm a person who likes to keep a solution-based approach to any challenges I come across
 - I'm not afraid of learning a new programming language or environment
+
+## Links
+
+roderick-zambrano on [GitHub](https://github.com/roderick-zambrano), [GitLab](https://gitlab.com/roderick-zambrano), [own instance](https://gitlab.devrod.tech/roderick-zambrano)
