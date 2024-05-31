@@ -22,4 +22,4 @@ deploy:
     - git push -f gitlab --tags
 
   only:
-    - master
+    - main
