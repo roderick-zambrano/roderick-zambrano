@@ -3,23 +3,25 @@ stages:
 
 deploy:
   stage: deploy
+  image: alpine:latest
   script:
-    - git config --global user.name "$FULL_NAME"
-    - git config --global user.email "$EMAIL"
+    # Install git
+    - apk update && apk add git
 
-    # Clone the repository
-    - git clone --mirror https://$GITLAB_SH_URL/$USERNAME/$USERNAME.git
-    - cd $USERNAME.git
+    # Configure required variables and settings
+    - git config --global user.name "${FULL_NAME}"
+    - git config --global user.email "${EMAIL}"
+    - git fetch --unshallow
+    - git checkout $CI_COMMIT_BRANCH
 
     # Push to GitHub
-    - git remote add github https://$GITHUB_TOKEN@github.com/$USERNAME/$USERNAME.git
-    - git push -f github --all
-    - git push -f github --tags
+    - echo https://${GITHUB_TOKEN}@github.com/${USERNAME}/${PROFILE_REPO}.git
+    - git remote set-url github https://${GITHUB_TOKEN}@github.com/${USERNAME}/${PROFILE_REPO}.git
+    - git push github
 
     # Push to GitLab
-    - git remote add gitlab https://$GITLAB_TOKEN@gitlab.com/$USERNAME/$USERNAME.git
-    - git push -f gitlab --all
-    - git push -f gitlab --tags
+    - git remote add gitlab https://${USERNAME}:${GITLAB_TOKEN}@gitlab.com/${USERNAME}/${PROFILE_REPO}.git
+    - git push -f gitlab
 
   only:
     - main
