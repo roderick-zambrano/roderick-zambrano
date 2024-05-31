@@ -12,6 +12,8 @@ deploy:
     - git config --global user.name "${FULL_NAME}"
     - git config --global user.email "${EMAIL}"
     - git checkout $CI_COMMIT_BRANCH
+    - git pull
+
 
     # Push to GitHub
     - git remote set-url github https://${GITHUB_TOKEN}@github.com/${USERNAME}/${PROFILE_REPO}.git
