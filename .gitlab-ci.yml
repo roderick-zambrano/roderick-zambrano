@@ -11,8 +11,8 @@ deploy:
     # Configure required variables and settings
     - git config --global user.name "${FULL_NAME}"
     - git config --global user.email "${EMAIL}"
-    - git fetch
     - git checkout $CI_COMMIT_BRANCH
+    - git pull
 
 
     # Push to GitHub
